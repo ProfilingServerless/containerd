@@ -341,6 +341,7 @@ func (c *criService) RunPodSandbox(ctx context.Context, r *runtime.RunPodSandbox
 		}
 
 		sandboxCreateNetworkTimer.UpdateSince(netStart)
+	    log.G(ctx).WithField("podsandboxname", name).Debugf("Network sandbox created in %v", time.Now().Sub(netStart))
 	}
 
 	// Create sandbox task in containerd.
